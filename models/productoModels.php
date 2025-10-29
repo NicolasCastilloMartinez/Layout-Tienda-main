@@ -1,8 +1,8 @@
 <?php
 
-require_once 'config/db.php';
+require_once 'configs/db.php';
 
-class Producto
+class ProductoModels
 {
     private $id_producto;
     private $nombre_producto;
@@ -108,5 +108,10 @@ class Producto
     public function setIdCategoria($id_categoria)
     {
         $this->id_categoria = $id_categoria;
+    }
+
+    public function getAll(){
+        $productos = $this->db->query("SELECT * FROM t_productos ORDER by id_producto DESC");
+        return $productos;
     }
 }
